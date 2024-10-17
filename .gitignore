@@ -1,1 +1,7 @@
-.idea
+.idea/
+**/*.ipynb
+**/*.pyc
+**/__pycache__
+**/test.py
+snapsort.egg-info
+.DS_Store

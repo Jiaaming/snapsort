@@ -10,8 +10,11 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'photo-classifier=photo_classifier.classify:classify',
+            'snapsort=snap_sort.cli:snapsort',
         ],
+    },
+    package_data={
+        'snap_sort': ['snap_sort/models/yolov8s.pt'],  
     },
     author="Jiaming Liu",
     description="A CLI tool to classify photos based on exposure, focus, and content.",

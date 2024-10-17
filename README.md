@@ -9,7 +9,7 @@
 - **Exposure Classification**: Identify overexposed and underexposed images.
 - **Content Classification**: Distinguish between landscape and portrait images.
 - **Customizable**: Choose which classification method to apply using command-line arguments.
-
+- ...
 
 ## Installation
 
@@ -17,3 +17,4 @@ You can install SnapSort using `pip`:
 
 ```bash
 pip install snapsort
+pip install --editable .
