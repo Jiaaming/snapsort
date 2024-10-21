@@ -4,8 +4,7 @@ import logging
 import json
 import hashlib
 from snap_sort.utils.cache_manager import CacheManager
-from snap_sort.utils.constants import IMAGINE_CLASSES_FILE
-from ultralytics import YOLO
+from snap_sort.utils.constants import HASH_CLASSES_MAP
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -19,13 +18,13 @@ class ImageLoader:
         return hashlib.md5(image_bytes).hexdigest()
 
     @classmethod
-    def save_classes_to_file(cls, filename=IMAGINE_CLASSES_FILE):
+    def save_classes_to_file(cls, filename=HASH_CLASSES_MAP):
         hash_file = os.path.join(cls.cache_dir, filename)
         with open(hash_file, "w") as f:
             json.dump(cls.image_classes, f)
 
     @classmethod
-    def load_classes_from_file(cls, filename=IMAGINE_CLASSES_FILE):
+    def load_classes_from_file(cls, filename=HASH_CLASSES_MAP):
         hash_file = os.path.join(cls.cache_dir, filename)
         try:
             with open(hash_file, "r") as f:
@@ -33,3 +32,14 @@ class ImageLoader:
         except FileNotFoundError:
             cls.image_classes = {}
 
+    @classmethod
+    def resize_image(cls,image, target_size=800):
+        height, width = image.shape[:2]
+        aspect_ratio = width / height
+        if aspect_ratio > 1:  # Landscape image
+            new_width = target_size
+            new_height = int(new_width / aspect_ratio)
+        else:  # Portrait image
+            new_height = target_size
+            new_width = int(new_height * aspect_ratio)
+        return cv2.resize(image, (new_width, new_height))

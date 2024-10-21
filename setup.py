@@ -7,6 +7,11 @@ setup(
     install_requires=[
         'opencv-python',
         'click',
+        'ultralytics',
+        'torch',
+        'transformers',
+        'numpy',
+        'sentence-transformers'
     ],
     entry_points={
         'console_scripts': [
@@ -16,8 +21,11 @@ setup(
     package_data={
         'snap_sort': ['snap_sort/models/yolov8s.pt'],  
     },
+    exclude_package_data={
+        '': ['README.md', 'snapsort.egg-info/'],
+    },
     author="Jiaming Liu",
-    description="A CLI tool to classify photos based on exposure, focus, and content.",
+    description="A CLI tool to classify photos",
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url="https://github.com/Jiaaming/snapsort",

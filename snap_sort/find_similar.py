@@ -63,5 +63,5 @@ def find_similar_images(reference_image_path, folder_path, top_n=10, weight_phas
     for filename, similarity_score in top_similar_images:
         src_path = os.path.join(folder_path, filename)
         FileManager.move_file(src_path, similar_folder)
-
+    FileManager.update_redo_file(folder_path, similar_folder)
     return top_similar_images

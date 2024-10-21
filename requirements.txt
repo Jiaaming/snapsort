@@ -1,3 +1,4 @@
 click==8.1.7
 numpy==2.1.2
 opencv-python-headless==4.10.0.84
+torch==2.2.2

@@ -14,8 +14,8 @@ def redo_last_operation():
     if not change:
         return
 
-    src_dir = change['src']
-    dest_dir = change['dest']
+    src_dir = change['dest']
+    dest_dir = change['src']
     # Check if the source directory exists
     if not os.path.exists(src_dir):
         logging.error(f"Source directory does not exist: {src_dir}")

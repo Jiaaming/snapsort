@@ -4,8 +4,6 @@ import os
 import logging
 from snap_sort.utils.file_manager import FileManager
 from snap_sort.utils.image_loader import ImageLoader
-from concurrent.futures import ThreadPoolExecutor
-from snap_sort.utils.constants import IMAGINE_CLASSES_FILE
 
 def is_overexposed(image):
     """Check if the image is overexposed by analyzing a central region of interest (ROI)."""
@@ -27,3 +25,4 @@ def classify_overexposed_images(folder_path):
         if is_overexposed(image):
             overexposed_folder = os.path.join(folder_path, 'overexposed')
             FileManager.move_file(image_path, overexposed_folder)
+    FileManager.update_redo_file(folder_path, overexposed_folder)
