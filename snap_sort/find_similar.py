@@ -53,7 +53,6 @@ def find_similar_images(reference_image_path, folder_path, top_n=10, weight_phas
                 similarities.append((filename, combined_similarity))
 
     similarities.sort(key=lambda x: x[1], reverse=True)
-    print(similarities)
 
     top_similar_images = similarities[:top_n]
 

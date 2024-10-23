@@ -62,6 +62,7 @@ def semantic_search_images(prompt, folder_path, top_n=10):
         FileManager.move_file(image_path, new_folder_path)
     save_hash_results_to_json(hash_results_map)
     FileManager.update_redo_file(folder_path, new_folder_path)
+
 def get_embeddings(texts):
     try:
         from sentence_transformers import SentenceTransformer

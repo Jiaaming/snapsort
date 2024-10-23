@@ -6,21 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="d89ad3a6-dc71-43b5-b216-75bad2173e85" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/architecture.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/architecture.drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snap_sort/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/snap_sort/cli.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snap_sort/exposure.py" beforeDir="false" afterPath="$PROJECT_DIR$/snap_sort/exposure.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snap_sort/find_similar.py" beforeDir="false" afterPath="$PROJECT_DIR$/snap_sort/find_similar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snap_sort/redo.py" beforeDir="false" afterPath="$PROJECT_DIR$/snap_sort/redo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snap_sort/semantic.py" beforeDir="false" afterPath="$PROJECT_DIR$/snap_sort/semantic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snap_sort/utils/file_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/snap_sort/utils/file_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snap_sort/utils/image_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/snap_sort/utils/image_loader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/exportToHTML" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -75,7 +72,7 @@
       <workItem from="1729050206865" duration="12881000" />
       <workItem from="1729135867765" duration="4839000" />
       <workItem from="1729304142449" duration="11854000" />
-      <workItem from="1729472346814" duration="11277000" />
+      <workItem from="1729472346814" duration="19171000" />
     </task>
     <servers />
   </component>

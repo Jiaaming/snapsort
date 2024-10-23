@@ -5,13 +5,15 @@ setup(
     version='0.1',
     packages=find_packages(),
     install_requires=[
-        'opencv-python',
-        'click',
-        'ultralytics',
-        'torch',
-        'transformers',
-        'numpy',
-        'sentence-transformers'
+        "click>=8.1.0",
+        "numpy>=1.21.0",
+        "torch>=1.9.0",
+        "setuptools>=50.0.0",
+        "ultralytics>=8.0.0",
+        "transformers>=4.0.0",
+        "imagehash>=4.2.1",
+        "pillow>=8.3.0",
+        "opencv-python>=4.5.0"
     ],
     entry_points={
         'console_scripts': [
