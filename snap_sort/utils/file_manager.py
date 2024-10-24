@@ -29,13 +29,10 @@ class FileManager:
     def update_redo_file(cls, src_folder, dest_folder):
         """Update the redo file with absolute paths of the source and destination folders."""
 
-        # Convert relative paths to absolute paths
         src_folder_abs = os.path.abspath(src_folder)
         dest_folder_abs = os.path.abspath(dest_folder)
 
-        # Store the change with absolute paths
         change = {"src": src_folder_abs, "dest": dest_folder_abs}
-        logging.info(f"Updating redo file with change: {change}")
         log_file = CacheManager.get_redo_file_path()
         cls.log_change(log_file, change)
 
@@ -43,7 +40,6 @@ class FileManager:
     def log_change(cls,log_file, change):
         with open(log_file, 'w') as f:
             json.dump(change, f)
-        logging.info(f"Logged change: {change}")
     @classmethod
     def load_changes(cls,log_file):
         try:

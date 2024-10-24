@@ -20,11 +20,11 @@ def semantic_search_images(prompt, folder_path, top_n=10):
     image_files = [f for f in os.listdir(folder_path) if f.endswith(('.png', '.jpg', '.jpeg'))]
     hash_results_map = load_hash_results_from_json()
     import faiss
-    # FAISS 索引设置
-    dimension = 384  # 嵌入维度 (根据模型决定, 这里用 all-MiniLM-L6-v2 的默认维度)
 
-    embeddings_list = []  # 存储所有嵌入
-    image_paths = []  # 存储所有图片路径
+    dimension = 384
+
+    embeddings_list = []
+    image_paths = []
 
     new_folder_path = os.path.join(folder_path, prompt)
     for filename in image_files:
@@ -34,14 +34,12 @@ def semantic_search_images(prompt, folder_path, top_n=10):
 
         results = []
         if image_hash not in hash_results_map:
-            logging.info(f"Performing YOLO detection on: {image_path}")
             results = perform_yolo_detection(image_path)
             hash_results_map[image_hash] = (results, image_path)
         else:
             results = hash_results_map[image_hash][0]
             old_path = hash_results_map[image_hash][1]
             if old_path != image_path:
-                logging.info(f"Updating cache path from {old_path} to {image_path}")
                 hash_results_map[image_hash] = (results, image_path)
 
         combined_results = " ".join(results)

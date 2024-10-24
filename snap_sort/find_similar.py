@@ -37,13 +37,13 @@ def find_similar_images(reference_image_path, folder_path, top_n=10, weight_phas
     """Find the top N most similar images using a combination of perceptual hash and histogram comparison."""
     similarities = []
 
-    reference_image = cv2.imread(reference_image_path)
+    reference_image = ImageLoader.resize_image(cv2.imread(reference_image_path))
 
     for filename in os.listdir(folder_path):
         if filename.endswith(('.png', '.jpg', '.jpeg')):
             image_path = os.path.join(folder_path, filename)
             
-            image = cv2.imread(image_path)
+            image = ImageLoader.resize_image(cv2.imread(image_path))
             
             phash_similarity = calculate_phash_similarity(reference_image, image)
             hist_similarity = calculate_histogram_similarity(reference_image, image)
@@ -53,7 +53,7 @@ def find_similar_images(reference_image_path, folder_path, top_n=10, weight_phas
                 similarities.append((filename, combined_similarity))
 
     similarities.sort(key=lambda x: x[1], reverse=True)
-
+    print("similarities: ",similarities[:top_n])
     top_similar_images = similarities[:top_n]
 
     similar_folder = os.path.join(folder_path, 'similar')

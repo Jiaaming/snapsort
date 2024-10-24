@@ -36,10 +36,10 @@ class ImageLoader:
     def resize_image(cls,image, target_size=800):
         height, width = image.shape[:2]
         aspect_ratio = width / height
-        if aspect_ratio > 1:  # Landscape image
+        if aspect_ratio > 1:
             new_width = target_size
             new_height = int(new_width / aspect_ratio)
-        else:  # Portrait image
+        else:
             new_height = target_size
             new_width = int(new_height * aspect_ratio)
         return cv2.resize(image, (new_width, new_height))
