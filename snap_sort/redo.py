@@ -18,10 +18,10 @@ def redo_last_operation():
     dest_dir = change['src']
     # Check if the source directory exists
     if not os.path.exists(src_dir):
-        logging.error(f"Source directory does not exist: {src_dir}")
+        # logging.error(f"Source directory does not exist: {src_dir}")
         return
     if not os.path.exists(dest_dir):
-        logging.error(f"Destination directory does not exist: {dest_dir}")
+        # logging.error(f"Destination directory does not exist: {dest_dir}")
         return
     
     try:
@@ -52,7 +52,7 @@ def load_changes(log_file):
                 return []  # Return an empty list if the file is empty
             return json.loads(content)
     except json.JSONDecodeError as e:
-        logging.error(f"Error decoding JSON from {log_file}: {e}")
+        # logging.error(f"Error decoding JSON from {log_file}: {e}")
         return []
 def clear_changes(log_file):
     with open(log_file, 'w') as f:

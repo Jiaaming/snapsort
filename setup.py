@@ -21,7 +21,7 @@ setup(
         ],
     },
     package_data={
-        'snap_sort': ['snap_sort/models/yolov8s.pt'],  
+        'snap_sort': ['snap_sort/models/yolov8s.pt', 'snap_sort/models/all-MiniLM-L6-v2'],
     },
     exclude_package_data={
         '': ['README.md', 'snapsort.egg-info/'],
@@ -37,4 +37,5 @@ setup(
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.6',
+    include_package_data=True,
 )

@@ -4,7 +4,7 @@ import imagehash
 from PIL import Image
 from snap_sort.utils.file_manager import FileManager
 from snap_sort.utils.image_loader import ImageLoader
-
+import heapq
 
 
 def calculate_phash_similarity(image1, image2):
@@ -35,7 +35,7 @@ def calculate_histogram_similarity(image1, image2):
 
 def find_similar_images(reference_image_path, folder_path, top_n=10, weight_phash=0.5, weight_hist=0.5):
     """Find the top N most similar images using a combination of perceptual hash and histogram comparison."""
-    similarities = []
+    similarities_heap = []
 
     reference_image = ImageLoader.resize_image(cv2.imread(reference_image_path))
 
@@ -49,18 +49,16 @@ def find_similar_images(reference_image_path, folder_path, top_n=10, weight_phas
             hist_similarity = calculate_histogram_similarity(reference_image, image)
             
             combined_similarity = (weight_phash * phash_similarity) + (weight_hist * hist_similarity)
-            if combined_similarity >= 0.5: 
-                similarities.append((filename, combined_similarity))
-
-    similarities.sort(key=lambda x: x[1], reverse=True)
-    print("similarities: ",similarities[:top_n])
-    top_similar_images = similarities[:top_n]
+            if combined_similarity >= 0.3:
+                heappush(similarities_heap, (-combined_similarity, filename))
+                if len(similarities_heap) > top_n:
+                    heappop(similarities_heap)
 
     similar_folder = os.path.join(folder_path, 'similar')
     os.makedirs(similar_folder, exist_ok=True)
 
-    for filename, similarity_score in top_similar_images:
+    for similarity_score,filename in similarities_heap:
         src_path = os.path.join(folder_path, filename)
         FileManager.move_file(src_path, similar_folder)
     FileManager.update_redo_file(folder_path, similar_folder)
-    return top_similar_images
+    return similarities_heap

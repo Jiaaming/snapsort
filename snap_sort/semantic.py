@@ -12,7 +12,20 @@ import numpy as np
 import json
 
 tokenizer = AutoTokenizer.from_pretrained('prajjwal1/bert-mini')
-model = AutoModel.from_pretrained('prajjwal1/bert-mini')
+bert_model = AutoModel.from_pretrained('prajjwal1/bert-mini')
+# Determine the absolute path to the model directory
+current_dir = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(current_dir, 'models', 'all-MiniLM-L6-v2')
+
+try:
+    from sentence_transformers import SentenceTransformer
+except ImportError:
+    logging.error("Please install the sentence-transformers library: pip install sentence-transformers")
+    sbert_model = None
+else:
+    # Load the model from the local path
+    logging.info(f"Loading SentenceTransformer model from: {model_path}")
+    sbert_model = SentenceTransformer(model_path)
 
 
 def semantic_search_images(prompt, folder_path, top_n=10):
@@ -62,13 +75,9 @@ def semantic_search_images(prompt, folder_path, top_n=10):
     FileManager.update_redo_file(folder_path, new_folder_path)
 
 def get_embeddings(texts):
-    try:
-        from sentence_transformers import SentenceTransformer
-    except ImportError:
-        logging.error("Please install the sentence-transformers library: pip install sentence-transformers")
+    if sbert_model is None:
+        logging.error("SentenceTransformer model is not loaded.")
         return None
-    sbert_model = SentenceTransformer('all-MiniLM-L6-v2')
-
     return sbert_model.encode(texts)
 
 # hash_results_map = {
@@ -92,6 +101,7 @@ def load_hash_results_from_json():
         serializable_map = json.load(f)
 
     hash_results_map = {key: (value["yolo_results"], value["file_path"]) for key, value in serializable_map.items()}
+    logging.info(f"Loaded {len(hash_results_map)} hash results from JSON.")
     return hash_results_map
 
 

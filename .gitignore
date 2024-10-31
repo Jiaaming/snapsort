@@ -5,3 +5,5 @@
 **/test.py
 snapsort.egg-info
 .DS_Store
+dist
+snap_sort/models
