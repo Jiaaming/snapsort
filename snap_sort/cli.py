@@ -26,9 +26,8 @@ def overexposed(folder_path):
 @click.argument('folder_path', default='.')
 def similar(top_n, photo_path, folder_path):
     """Find top N most similar images in FOLDER_PATH to PHOTO_PATH."""
-    logging.info(f"Finding top {top_n} images similar to: {photo_path}")
-    similar_images = find_similar_images(photo_path, folder_path, top_n)
-    logging.info(f"Found {len(similar_images)} similar images")
+    nums = find_similar_images(photo_path, folder_path, top_n)
+    logging.info(f"Found {nums} similar images")
 
 @snapsort.command(name='redo', short_help='Redo the last operation')
 def redo():
@@ -39,7 +38,6 @@ def redo():
 @click.argument('prompt')
 @click.argument('folder_path', default='.')
 def similar(top_n, prompt, folder_path):
-    logging.info(f"Finding top {top_n} images similar to: {prompt}")
     semantic_search_images(prompt, folder_path, top_n)
 
 

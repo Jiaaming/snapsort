@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='snapsort',
-    version='0.1',
+    version='0.2',
     packages=find_packages(),
     install_requires=[
         "click>=8.1.0",
@@ -24,7 +24,7 @@ setup(
         'snap_sort': ['snap_sort/models/yolov8s.pt', 'snap_sort/models/all-MiniLM-L6-v2'],
     },
     exclude_package_data={
-        '': ['README.md', 'snapsort.egg-info/'],
+        '': ['README.md', 'snapsort.egg-info/', 'assets/', 'snap_sort/__pycache__', 'dist/', '.github/', '.idea/', '.vscode/'],
     },
     author="Jiaming Liu",
     description="A CLI tool to classify photos",

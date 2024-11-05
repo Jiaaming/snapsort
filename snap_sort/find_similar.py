@@ -40,7 +40,7 @@ def find_similar_images(reference_image_path, folder_path, top_n=10, weight_phas
     reference_image = ImageLoader.resize_image(cv2.imread(reference_image_path))
 
     for filename in os.listdir(folder_path):
-        if filename.endswith(('.png', '.jpg', '.jpeg')):
+        if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
             image_path = os.path.join(folder_path, filename)
             
             image = ImageLoader.resize_image(cv2.imread(image_path))
@@ -61,4 +61,4 @@ def find_similar_images(reference_image_path, folder_path, top_n=10, weight_phas
         src_path = os.path.join(folder_path, filename)
         FileManager.move_file(src_path, similar_folder)
     FileManager.update_redo_file(folder_path, similar_folder)
-    return similarities_heap
+    return len(similarities_heap)

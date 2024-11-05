@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d89ad3a6-dc71-43b5-b216-75bad2173e85" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/MANIFEST.in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snap_sort/exposure.py" beforeDir="false" afterPath="$PROJECT_DIR$/snap_sort/exposure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snap_sort/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/snap_sort/cli.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snap_sort/find_similar.py" beforeDir="false" afterPath="$PROJECT_DIR$/snap_sort/find_similar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snap_sort/redo.py" beforeDir="false" afterPath="$PROJECT_DIR$/snap_sort/redo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snap_sort/semantic.py" beforeDir="false" afterPath="$PROJECT_DIR$/snap_sort/semantic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snap_sort/utils/file_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/snap_sort/utils/file_manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +75,7 @@
       <workItem from="1729472346814" duration="29112000" />
       <workItem from="1729877225280" duration="2797000" />
       <workItem from="1730062608611" duration="4037000" />
+      <workItem from="1730782104802" duration="14000" />
     </task>
     <servers />
   </component>

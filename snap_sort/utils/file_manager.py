@@ -19,7 +19,7 @@ class FileManager:
         
         try:
             shutil.move(src_path, dest_path)
-            logging.info(f"Moved {src_path} to {dest_path}")
+            # logging.info(f"Moved {src_path} to {dest_path}")
             return dest_path
         except Exception as e:
             logging.error(f"Failed to move {src_path} to {dest_path}: {e}")
