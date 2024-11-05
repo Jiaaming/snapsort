@@ -24,7 +24,7 @@ setup(
         'snap_sort': ['snap_sort/models/yolov8s.pt', 'snap_sort/models/all-MiniLM-L6-v2'],
     },
     exclude_package_data={
-        '': ['README.md', 'snapsort.egg-info/', 'assets/', 'snap_sort/__pycache__', 'dist/', '.github/', '.idea/', '.vscode/'],
+        '': ['README.md', 'snapsort.egg-info/', 'assets/', 'snap_sort/__pycache__', 'dist/', '.github/', '.idea/', '.vscode/', 'snap_sort/utils/__pycache__'],
     },
     author="Jiaming Liu",
     description="A CLI tool to classify photos",
