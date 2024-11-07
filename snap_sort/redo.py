@@ -26,19 +26,13 @@ def redo_last_operation():
         return
     
     try:
-        # Create the destination directory if it does not exist
-        os.makedirs(dest_dir, exist_ok=True)
-
-        # Move all files from src_dir to dest_dir
-        for filename in os.listdir(src_dir):
-            src_file = os.path.join(src_dir, filename)
-            dest_file = os.path.join(dest_dir, filename)
-            
-            # Move the file
-            shutil.move(src_file, dest_file)
-        
-        # Remove the source directory after moving all files
-        os.rmdir(src_dir)
+        shutil.copytree(
+            src_dir,
+            dest_dir,
+            dirs_exist_ok=True,
+            copy_function=shutil.move
+        )
+        shutil.rmtree(src_dir)
     except Exception as e:
         logging.error(f"Failed to move files from {src_dir} back to {dest_dir}: {e}")
 

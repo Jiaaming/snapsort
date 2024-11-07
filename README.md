@@ -13,7 +13,6 @@
 - **Semantic search**: Search for images based on your prompt.
 - **Exposure Classification**: Identify overexposed and underexposed images.
 - **Find similar images**: Find similar images based on a reference image.
-- ...
 
 ## Installation
 
