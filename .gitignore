@@ -3,7 +3,8 @@
 **/*.pyc
 **/__pycache__
 **/test.py
-snapsort.egg-info
 .DS_Store
 dist
 snap_sort/models
+build
+snap_sort.egg-info/
