@@ -26,6 +26,9 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: '>=3.8'
+    - name: Clean old build files
+      run: rm -rf dist/ build/ *.egg-info
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
