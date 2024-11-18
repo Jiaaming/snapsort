@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='snapsort',
-    version='0.2',
+    name='snap-sort',
+    version='0.1.1',
     packages=find_packages(),
     install_requires=[
         "click>=8.1.0",

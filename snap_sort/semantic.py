@@ -172,7 +172,6 @@ def search_similar_images(embeddings_list, image_paths, prompt, dimension, top_n
     # Search for similar images
     prompt_embedding = get_embeddings([prompt])[0].reshape(1, -1).astype('float32')
     distances, indices = faiss_index.search(prompt_embedding, min(top_n, len(embeddings_list)))
-
     similar_image_paths = [image_paths[idx] for idx in indices[0]]
     return similar_image_paths
 

@@ -31,14 +31,14 @@ def classify_tone(folder_path, level):
         logging.error("Invalid tone level. Please specify low, medium, or high.")
 
 
-@snapsort.command(name='similar', short_help='Find top N most similar images')
+@snapsort.command(name='find', short_help='Find top N most similar images')
 @click.option('--top-n', '-n', default=10, help='Number of most similar images to select')
 @click.argument('photo_path')
 @click.argument('folder_path', default='.')
-def similar(top_n, photo_path, folder_path):
+def find(top_n, photo_path, folder_path):
     """Find top N most similar images in FOLDER_PATH to PHOTO_PATH."""
     nums = find_similar_images(photo_path, folder_path, top_n)
-    logging.info(f"Found {nums} similar images")
+    logging.info(f"Found {nums} find images")
 
 @snapsort.command(name='redo', short_help='Redo the last operation')
 def redo():

@@ -4,7 +4,7 @@ import imagehash
 from PIL import Image
 from snap_sort.utils.file_manager import FileManager
 from snap_sort.utils.image_loader import ImageLoader
-import heapq
+from heapq import heappush, heappop
 
 
 def calculate_phash_similarity(image1, image2):
@@ -49,7 +49,7 @@ def find_similar_images(reference_image_path, folder_path, top_n=10, weight_phas
             hist_similarity = calculate_histogram_similarity(reference_image, image)
             
             combined_similarity = (weight_phash * phash_similarity) + (weight_hist * hist_similarity)
-            if combined_similarity >= 0.3:
+            if combined_similarity >= 0.4:
                 heappush(similarities_heap, (-combined_similarity, filename))
                 if len(similarities_heap) > top_n:
                     heappop(similarities_heap)
