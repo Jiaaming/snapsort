@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='cli-snapsort',
-    version='0.1.1',
+    version='0.1.2',
     packages=find_packages(),
     install_requires=[
         "click>=8.1.0",
@@ -21,7 +21,7 @@ setup(
         ],
     },
     package_data={
-        'snap_sort': ['snap_sort/models/yolov8s.pt', 'snap_sort/models/all-MiniLM-L6-v2'],
+        'snap_sort': ['models/*'],
     },
     exclude_package_data={
         '': ['README.md', 'snapsort.egg-info/', 'assets/', 'snap_sort/__pycache__', 'dist/', '.github/', '.idea/', '.vscode/', 'snap_sort/utils/__pycache__'],
@@ -36,6 +36,6 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.8',
     include_package_data=True,
 )

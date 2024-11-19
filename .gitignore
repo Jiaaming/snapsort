@@ -8,3 +8,4 @@ dist
 snap_sort/models
 build
 snap_sort.egg-info/
+cli_snapsort.egg-info/
