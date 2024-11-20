@@ -19,10 +19,11 @@
 You can install SnapSort using `pip`:
 
 ```bash
-pip install snapsort
+pip install cli-snapsort
 ```
 
 ## Development
 ```bash
+git clone ...
 pip install --editable .
 ```
