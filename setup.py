@@ -13,7 +13,7 @@ setup(
         "transformers>=4.0.0",
         "imagehash>=4.2.1",
         "pillow>=8.3.0",
-        "opencv-python>=4.5.0"
+        "opencv-python>=4.5.0",
         "sentence-transformers>=3.3.0",
     ],
     entry_points={

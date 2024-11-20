@@ -16,18 +16,13 @@ import contextlib
 with open(os.devnull, 'w') as f, contextlib.redirect_stdout(f):
     tokenizer = AutoTokenizer.from_pretrained('prajjwal1/bert-mini')
     bert_model = AutoModel.from_pretrained('prajjwal1/bert-mini')
-    # Determine the absolute path to the model directory
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    model_path = os.path.join(current_dir, 'models', 'all-MiniLM-L6-v2')
 
     try:
         from sentence_transformers import SentenceTransformer
+        sbert_model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
     except ImportError:
         logging.error("Please install the sentence-transformers library: pip install sentence-transformers")
         sbert_model = None
-    else:
-        # Load the model from the local path
-        sbert_model = SentenceTransformer(model_path)
 
 
 def semantic_search_images(prompt, folder_path, top_n=10):
