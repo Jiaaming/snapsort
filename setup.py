@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='cli-snapsort',
-    version='0.1.5',
+    version='0.1.6',
     packages=find_packages(),
     install_requires=[
         "click>=8.1.0",
