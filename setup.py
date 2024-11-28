@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='cli-snapsort',
-    version='0.1.4',
+    version='0.1.5',
     packages=find_packages(),
     install_requires=[
         "click>=8.1.0",
@@ -22,7 +22,7 @@ setup(
         ],
     },
     package_data={
-        'snap_sort': ['models/*'],
+        'snap_sort': ['models/*.pt'],
     },
     exclude_package_data={
         '': ['README.md', 'snapsort.egg-info/', 'assets/', 'snap_sort/__pycache__', 'dist/', '.github/', '.idea/', '.vscode/', 'snap_sort/utils/__pycache__'],
