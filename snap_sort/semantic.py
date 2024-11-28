@@ -10,7 +10,6 @@ from transformers import AutoTokenizer, AutoModel
 import numpy as np
 import json
 logging.getLogger().setLevel(logging.WARNING)
-import sys
 import contextlib
 
 with open(os.devnull, 'w') as f, contextlib.redirect_stdout(f):
@@ -158,7 +157,10 @@ def search_similar_images(embeddings_list, image_paths, prompt, dimension, top_n
     if not embeddings_list:
         logging.warning("No embeddings found to build Faiss index.")
         return []
-    import faiss
+    try:
+        import faiss
+    except ImportError:
+        logging.error("Please install the faiss library: pip install faiss-cpu on CPU or faiss-gpu on GPU.")
     # Build the Faiss index
     faiss_index = faiss.IndexFlatL2(dimension)
     embeddings_matrix = np.array(embeddings_list).astype('float32')
