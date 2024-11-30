@@ -16,9 +16,9 @@ def is_tone_level(image, tone_level):
     if tone_level == 'low':
         return mean_brightness < 85  # Low tone (bottom third)
     elif tone_level == 'mid':
-        return 85 <= mean_brightness < 170  # Medium tone (middle third)
+        return 85 <= mean_brightness < 160  # Medium tone (middle third)
     elif tone_level == 'high':
-        return mean_brightness >= 170  # High tone (top third)
+        return mean_brightness >= 160  # High tone (top third)
     return False
 
 def process_image(filename, folder_path, target_folder, tone_level):
@@ -43,6 +43,7 @@ def classify_images_by_tone(folder_path, tone_level):
     # Determine the number of threads to use
     num_threads = min(32, os.cpu_count() + 4)
 
+    print(f"Classifying images in {folder_path} by tone level: {tone_level}")
     with ThreadPoolExecutor(max_workers=num_threads) as executor:
         futures = []
         for filename in image_files:

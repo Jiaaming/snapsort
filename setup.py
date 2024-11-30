@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='cli-snapsort',
-    version='0.1.6',
+    version='1.0.0',
     packages=find_packages(),
     install_requires=[
         "click>=8.1.0",
@@ -15,6 +15,7 @@ setup(
         "pillow>=8.3.0",
         "opencv-python>=4.5.0",
         "sentence-transformers>=3.3.0",
+        "faiss-cpu>=1.9.0"
     ],
     entry_points={
         'console_scripts': [

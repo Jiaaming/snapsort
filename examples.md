@@ -13,13 +13,13 @@ snapsort search "car and people"
 snapsort search landscape -n 5
 ```
 
-## Similar Image Discovery
+## Find Similar Image
 
 Find images similar to a reference image:
 
 ```bash
 # Find images similar to a specific image
-snapsort similar /path/to/reference/image.jpg
+snapsort find /path/to/reference/image.jpg
 ```
 
 ## Exposure Classification
@@ -28,9 +28,9 @@ Sort images by exposure levels:
 
 ```bash
 # Retrieve images with different exposure characteristics
-snapsort tone low      # Underexposed images
-snapsort tone mid      # Balanced exposure images
-snapsort tone high     # Overexposed images
+snapsort tone --level low      # Dark or low-key images 
+snapsort tone --level mid      # Well-exposed or balanced images
+snapsort tone --level high     # Bright or high-key images
 ```
 
 ## Redo last command

@@ -9,8 +9,11 @@ import cv2
 from transformers import AutoTokenizer, AutoModel
 import numpy as np
 import json
-logging.getLogger().setLevel(logging.WARNING)
+from contextlib import redirect_stdout
+
+logging.getLogger().setLevel(logging.ERROR)
 import contextlib
+
 
 with open(os.devnull, 'w') as f, contextlib.redirect_stdout(f):
     tokenizer = AutoTokenizer.from_pretrained('prajjwal1/bert-mini')
@@ -112,13 +115,14 @@ def perform_batch_yolo_detection(images_to_detect, images_to_detect_hashes, hash
     total_images = len(images_to_detect)
     max_batch_size = 16  # Set a maximum batch size based on your system capacity
     batch_size = min(total_images, max_batch_size)
-
+    # sys.stdout = open(os.devnull, 'w')
+    # sys.stderr = open(os.devnull, 'w')
     # Process images in batches
     for i in range(0, total_images, batch_size):
         batch_image_paths = images_to_detect[i:i + batch_size]
         batch_image_hashes = images_to_detect_hashes[i:i + batch_size]
 
-        # YOLOv8 accepts a list of image paths
+        
         results_list = model(batch_image_paths)
 
         for image_path, image_hash, results in zip(batch_image_paths, batch_image_hashes, results_list):
