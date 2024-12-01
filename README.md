@@ -14,6 +14,7 @@
 
 ## Usage
 See [examples.md](examples.md) for usage examples.
+See [Youtube Video](https://www.youtube.com/watch?v=5sJ3nO6FAM0) for a demo.
 ## Installation
 
 You can install SnapSort using `pip`:

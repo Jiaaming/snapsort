@@ -6,6 +6,7 @@ from snap_sort.find_similar import find_similar_images
 from snap_sort.redo import redo_last_operation
 from snap_sort.semantic import semantic_search_images
 # Configure logging
+import time
 
 @click.group(invoke_without_command=True)
 @click.pass_context
@@ -49,7 +50,14 @@ def redo():
 def search(top_n, prompt, folder_path):
     """Find top N most semantically similar images in FOLDER_PATH to PROMPT."""
     print("Searching based on prompt: ", prompt)
+    start_time = time.time()  # Start the stopwatch
+    
     semantic_search_images(prompt, folder_path, top_n)
+    
+    end_time = time.time()  # End the stopwatch
+    elapsed_time = end_time - start_time  # Calculate the elapsed time
+    
+    print(f"Operation completed in {elapsed_time:.2f} seconds.")
 
 
 if __name__ == "__main__":

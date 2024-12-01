@@ -6,7 +6,6 @@ from snap_sort.utils.image_loader import ImageLoader
 from snap_sort.utils.constants import HASH_CLASSES_MAP
 from snap_sort.utils.cache_manager import CacheManager
 import cv2
-from transformers import AutoTokenizer, AutoModel
 import numpy as np
 import json
 from contextlib import redirect_stdout
@@ -16,9 +15,6 @@ import contextlib
 
 
 with open(os.devnull, 'w') as f, contextlib.redirect_stdout(f):
-    tokenizer = AutoTokenizer.from_pretrained('prajjwal1/bert-mini')
-    bert_model = AutoModel.from_pretrained('prajjwal1/bert-mini')
-
     try:
         from sentence_transformers import SentenceTransformer
         sbert_model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
@@ -201,6 +197,7 @@ def save_hash_results_to_json(hash_results_map):
 
 def load_hash_results_from_json():
     json_file_path = os.path.join(CacheManager.get_cache_dir(), HASH_CLASSES_MAP)
+    print("Cache file path: ", json_file_path)
     if not os.path.exists(json_file_path):
         return {}
     with open(json_file_path, 'r') as f:
